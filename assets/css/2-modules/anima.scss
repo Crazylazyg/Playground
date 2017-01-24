@@ -1,0 +1,137 @@
+
+section {
+  background: #ebeaeb;
+  margin: 0px auto;
+
+  min-height: 90vh;
+  padding: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 50px;
+}
+
+.section-modal{
+  position: relative;
+  overflow: hidden;
+
+  .profile{
+    display: flex;
+    align-items: center;
+    background: rgba(0,0,0,0.1);
+    background: white;
+    padding: 15px 30px;
+    border-radius: 4px;
+    box-shadow: 0px 23px 30px -20px rgba(0,0,0,0.4);
+    transition: all 200ms ease-in-out;
+    &:hover {
+        cursor: pointer;
+        transform: translateY(-4px);
+        box-shadow: 0px 27px 30px -20px rgba(0,0,0,0.4);
+    }
+
+    .name {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+    .meta {
+      color: rgba(0,0,0,0.4);
+    }
+    img {
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      margin-right: 20px;
+    }
+  }
+
+  .overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.7);
+    justify-content: center;
+    align-items: center;
+    display: none;
+
+    &.is-active {
+      display: flex;
+      animation: overlayAnim 5s ease-in-out forwards;
+        .modal {
+          animation: modalAnim 5s ease-in-out forwards;
+        }
+    }
+
+    .modal {
+      width: 450px;
+      box-shadow: 0px 23px 30px -20px rgba(0,0,0,0.4);
+
+      .title {
+        background: #0097A7;
+        color: white;
+        border-radius: 4px 4px 0px 0px;
+        text-align: center;
+        line-height: 48px;
+        font-weight: 700;
+      }
+      .body {
+        background: white;
+        border-radius: 0px 0px 4px 4px;
+        line-height: 20px;
+        display: flex;
+        align-items: stretch;
+
+        .text {
+          padding: 30px;
+        }
+        p {
+          margin-bottom: 20px;
+        }
+        .img {
+          height: 180px;
+          width: 140px;
+          border-bottom-left-radius: 4px;
+          flex-shrink: 0;
+          background-size: cover;
+          background-position: center;
+        }
+      }
+    }
+  }
+}
+
+@keyframes overlayAnim{
+  0%, 100%{
+    background-color: rgba(0,0,0,0);
+  }
+  15%, 85%{
+    background-color: rgba(0,0,0,0.3);
+  }
+
+}
+
+
+
+@keyframes modalAnim{
+  0% {
+    transform: translateX(-200%) rotate(-90deg);
+    opacity: 0;
+  }
+
+  10% {
+    transform: translateX(4%) rotate(4deg);
+  }
+  15%, 85% {
+    transform: translateX(0%);
+    opacity: 1;
+  }
+
+  90% {
+    transform: translateX(-4%) rotate(-4deg);
+  }
+  100% {
+    transform: translateX(200%) rotate(90deg);
+  }
+}

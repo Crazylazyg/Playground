@@ -1,6 +1,66 @@
 @import "0-tools/normalize";
 @import "0-tools/bourbon/bourbon";
 
-body {
-    background: white;
+// @import "2-modules/menus";
+// @import "2-modules/anima";
+.page {
+  margin: 0 0 0 160px;
+  padding: 20px;
+  z-index: 10;
+  background: white;
+  height: 1000px;
+  box-shadow: -6px 0 12px rgba(0,0,0,0.6);
+  transition: all 1s;
+}
+.body {
+  z-index: 10;
+  text-align: center;
+}
+
+.butten {
+  font-size: 20px;
+  position: relative;
+}
+.nav {
+  z-index: -1;
+  transition: all 1s;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 160px;
+  height: 100%;
+  background: #222222;
+  color: rgba(255,255,255,0.66);
+  ul {
+    list-style: none;
+    padding: 20px;
+    margin: 0;
+  }
+
+  li {
+    text-decoration: none;
+    text-align: right;
+    margin: 24px 20px;
+    cursor: pointer;
+
+    &:first-child {
+      margin-top: 0;
+    }
+
+    &:hover {
+      color: rgba(255,255,255,1);
+    }
+  }
+}
+
+.theLable {
+  display: none;
+  &:checked + .page {
+      margin-left: 0;
+      + .nav {
+        background: #1e1e1e;
+        width: 100px;
+      }
+  }
+
 }

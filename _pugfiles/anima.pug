@@ -1,0 +1,29 @@
+
+
+// Section 3 - Modal
+section.section-modal
+  .profile
+
+    img(src="http://www.fillmurray.com/130/130")
+    .text
+      .name Bill Grate
+      .mete Click me!
+
+  .overlay
+    .modal
+      .title Your are clicked a Murry!
+      .body
+        .img(style="background-image: url(http://www.fillmurray.com/180/180)")
+        .text
+          p Bill Murray loves you, and sends his most sincere regards.
+          p He also asks that you simply keep on hacking.
+
+
+script(src="assets/js/jquery.js")
+script(type="text/javascript").
+  $('.section-modal .profile').click(function(){
+  $('.overlay').addClass('is-active');
+  setTimeout(function(){
+    $('.overlay').removeClass('is-active');
+  }, 5000);
+  });
