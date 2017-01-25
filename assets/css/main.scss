@@ -3,64 +3,140 @@
 
 // @import "2-modules/menus";
 // @import "2-modules/anima";
-.page {
-  margin: 0 0 0 160px;
-  padding: 20px;
-  z-index: 10;
-  background: white;
-  height: 1000px;
-  box-shadow: -6px 0 12px rgba(0,0,0,0.6);
-  transition: all 1s;
+@import "2-modules/slide";
+
+body {
+  padding: 100px;
+  background: #eee;
 }
-.body {
-  z-index: 10;
+
+.wall {
   text-align: center;
+  vertical-align: middle;
+  margin-bottom: 100px;
+  background: white;
+  padding-bottom: 100px;
+  box-shadow: 0 40px 60px -20px rgba(0,0,0,0.2);
 }
 
-.butten {
-  font-size: 20px;
+h1 {
+  padding: 50px;
+}
+
+.spinner {
+  width: 100px;
+  height: 100px;
+  background: #eee;
+  border-radius: 50%;
   position: relative;
-}
-.nav {
-  z-index: -1;
-  transition: all 1s;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 160px;
-  height: 100%;
-  background: #222222;
-  color: rgba(255,255,255,0.66);
-  ul {
-    list-style: none;
-    padding: 20px;
-    margin: 0;
-  }
-
-  li {
-    text-decoration: none;
-    text-align: right;
-    margin: 24px 20px;
-    cursor: pointer;
-
-    &:first-child {
-      margin-top: 0;
-    }
-
-    &:hover {
-      color: rgba(255,255,255,1);
-    }
+  margin: 50px;
+  display: inline-block;
+  &:before,&:after {
+    content: '';
+    display: block;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
   }
 }
 
-.theLable {
-  display: none;
-  &:checked + .page {
-      margin-left: 0;
-      + .nav {
-        background: #1e1e1e;
-        width: 100px;
-      }
+.spinner-1:after {
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  border: 4px solid transparent;
+  border-top-color: orangered;
+  border-bottom-color: orangered;
+  animation: spinny 2s linear infinite;
+}
+@keyframes spinny {
+  0%
+    {transform: rotate(0deg) scale(1);}
+  50%
+    {transform: rotate(45deg) scale(1.2);}
+  100%
+    {transform: rotate(540deg) scale(1);}
+}
+.spinner-3 {
+  &:before, &:after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100px;
+    height: 100px;
+    background: orangered;
+    opacity: 0;
+    animation: plus 3s linear infinite;
   }
+  &:after {
+    animation: plus 2s linear 1.1s infinite;
+  }
+}
+@keyframes plus {
+  0%
+    {
+      transform: scale(0);
+      opacity: 1;
+    }
+  100%
+    {
+      transform: scale(1.2);
+      opacity: 0;
+    }
+}
 
+
+
+.spinner-4:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -2px;
+  width: 4px;
+  height: 56px;
+  background: orangered;
+  border-radius: 4px 4px 0 0;
+  transform-origin: center top;
+  animation: spin 2s linear infinite;
+}
+
+@keyframes spin {
+  0%
+    {transform: rotate(0deg);}
+
+  100%
+    {transform: rotate(360deg);}
+}
+
+.spinner-5 {
+  width: 0;
+  height: 0;
+  span {
+    display: block;
+    width: 20px;
+    height: 20px;
+    position: absolute;
+    top: -50px;
+    background: #ddd;
+    border-radius: 50%;
+
+    &:nth-child(1){
+      margin-left: -40px;
+      animation: bube 1s ease-in-out infinite;
+    }
+    &:nth-child(2){
+      animation: bube 1s ease-in-out 0.12s infinite;
+    }
+    &:nth-child(3){
+      margin-left: 40px;
+      animation: bube 1s ease-in-out 0.24s infinite;
+    }
+  }
+}
+
+@keyframes bube {
+  0%, 75%, 100%
+    {transform: translateY(0px);}
+  25%
+    {transform: translateY(-36px);}
 }
