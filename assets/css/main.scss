@@ -1,63 +1,9 @@
-// @import "0-tools/normalize";
-// @import "0-tools/bourbon/bourbon";
+@import "0-tools/normalize";
+@import "0-tools/bourbon/bourbon";
 
-// @import "2-modules/menus";
+@import "2-modules/menus";
 // @import "2-modules/anima";
 // @import "2-modules/slide";
 // @import "2-modules/loader";
 // @import "2-modules/flex";
-
-section {
-  margin: 64px 0;
-}
-.home-wrap {
-  width: 100%;
-  display: block;
-  min-height: 100vh;
-}
-.flex {
-  display: flex;
-  flex-direction: row;
-}
-.flex-center {
-  justify-content: center;
-}
-.flex-around {
-  justify-content: space-around;
-}
-.col-1 {
-  max-width: 400px;
-  margin: 0 20px;
-  background-color: lightgreen;
-}
-.col-2 {
-  max-width: 640px;
-  margin: 0 20px;
-  background-color: pink;
-}
-.col-50 {
-  width: 50%;
-  background: lightyellow;
-}
-
-@media (max-width: 640px) {
-  .flex, .flex-center {
-    display: block;
-  }
-  .col-1 {
-    max-width: 100%;
-    width: 100%;
-    margin: 0;
-  }
-  .col-2 {
-    width: auto;
-    margin: 0;
-  }
-  .col-50 {
-    width: auto;
-  }
-  section {
-    width: 100%;
-    margin: 0;
-  }
-}
+// @import "2-modules/col";
