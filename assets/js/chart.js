@@ -2,7 +2,7 @@ var dataArray = [5,11,18];
 
 var svg = d3.select('body').append('svg')
                              .attr("width","100%")
-                             .attr("height","300");
+                             .attr("height","300%");
 
 svg.selectAll('rect')
    .data(dataArray)
