@@ -404,3 +404,6 @@ template {
 
 svg {
   overflow: visible; }
+
+line {
+  stroke: #f20321; }
