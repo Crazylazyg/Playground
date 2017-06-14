@@ -412,3 +412,13 @@ g path {
 
 g.tick text {
   font-size: 1vw; }
+
+g.polygons path {
+  stroke: #333; }
+
+g.dots circle {
+  fill: #666; }
+
+g.links path {
+  stroke: #ccc;
+  stroke-width: 1; }
