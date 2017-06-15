@@ -402,23 +402,41 @@ template {
 [hidden] {
   display: none; }
 
-svg {
-  overflow: visible; }
-
 g path {
   stroke: #f20321;
-  stroke-with: 2px;
   fill: none; }
 
 g.tick text {
   font-size: 1vw; }
 
-g.polygons path {
-  stroke: #333; }
+#toolTip {
+  position: absolute;
+  color: #666;
+  opacity: 1;
+  padding: 4px 16px;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  z-index: 100;
+  -webkit-transition: all .05s;
+          transition: all .05s; }
+
+g.polygons {
+  z-index: 10; }
+  g.polygons path {
+    stroke: #666;
+    stroke-width: 1.5;
+    fill: transparent;
+    -webkit-transition: all .36s;
+            transition: all .36s; }
+    g.polygons path:hover {
+      fill: red;
+      stroke: transparent; }
 
 g.dots circle {
   fill: #666; }
 
-g.links path {
-  stroke: #ccc;
-  stroke-width: 1; }
+g.links {
+  z-index: 1; }
+  g.links path {
+    stroke: rgba(0, 0, 0, 0.1);
+    stroke-width: 1; }

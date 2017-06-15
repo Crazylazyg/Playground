@@ -1,10 +1,6 @@
-svg {
-  overflow:visible;
-}
 
 g path{
   stroke: #f20321;
-  stroke-with: 2px;
   fill: none;
 }
 
@@ -14,14 +10,37 @@ g.tick {
     font-size: 1vw;
   }
 }
+#toolTip {
+  position: absolute;
+  color: #666;
+  opacity: 1;
+  padding: 4px 16px;
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 4px;
+  z-index: 100;
+  transition:  all .05s;
+}
 
-g.polygons path{
-  stroke: #333;
+g.polygons {
+  z-index: 10;
+  path {
+    stroke: #666;
+    stroke-width: 1.5;
+    fill: rgba(0,0,0,0);
+    transition: all .36s;
+    &:hover {
+      fill: red;
+      stroke: rgba(0,0,0,0);
+    }
+  }
 }
 g.dots circle {
   fill: #666;
 }
-g.links path {
-  stroke: #ccc;
-  stroke-width: 1;
+g.links {
+  z-index: 1;
+  path {
+    stroke: rgba(0,0,0,0.1);
+    stroke-width: 1;
+  }
 }
