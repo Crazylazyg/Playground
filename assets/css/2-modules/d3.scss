@@ -1,4 +1,6 @@
-
+svg {
+  overflow: hidden;
+}
 g path{
   stroke: #f20321;
   fill: none;
@@ -25,17 +27,28 @@ g.polygons {
   z-index: 10;
   path {
     stroke: #666;
-    stroke-width: 1.5;
+    stroke-width: 1;
     fill: rgba(0,0,0,0);
     transition: all .36s;
     &:hover {
-      fill: red;
+      fill: rgba(244,20,40,0.88);
       stroke: rgba(0,0,0,0);
     }
   }
 }
+
+
 g.dots circle {
   fill: #666;
+  z-index: 100;
+  $s:.2s;
+  transition: fill $s, stroke $s,r $s, stroke-width $s;
+  &.active {
+    r: 8;
+    fill: #fff;
+    stroke: #666;
+    stroke-width: 3;
+  }
 }
 g.links {
   z-index: 1;
