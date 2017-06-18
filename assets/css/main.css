@@ -405,6 +405,9 @@ template {
 svg {
   overflow: hidden; }
 
+body {
+  text-align: center; }
+
 g path {
   stroke: #f20321;
   fill: none; }
@@ -448,3 +451,6 @@ g.links {
   g.links path {
     stroke: rgba(0, 0, 0, 0.1);
     stroke-width: 1; }
+
+circle.dots {
+  fill: url(#Rainbow); }
