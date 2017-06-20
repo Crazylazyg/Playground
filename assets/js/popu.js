@@ -9,7 +9,6 @@ d3.csv('assets/js/data/life_expectancy.csv')
     life: +(d.life),
     };}).get(function(error, data){
     if (error) throw error;
-
     for (var i = 0; i < data.length; i++) {
       if (data[i].name == 'chn' && data[i].year < 2020 && data[i].year > 1819) {
         chnLife.push([data[i].year, data[i].life]);
