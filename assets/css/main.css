@@ -402,8 +402,8 @@ template {
 [hidden] {
   display: none; }
 
-svg {
-  overflow: hidden; }
+#wrap svg {
+  overflow: visible; }
 
 body {
   text-align: center; }
@@ -425,6 +425,10 @@ g.tick text {
   z-index: 100;
   -webkit-transition: all .05s;
           transition: all .05s; }
+
+.text_year {
+  font-size: 120px;
+  fill: #eee; }
 
 g.polygons {
   z-index: 10; }

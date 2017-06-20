@@ -1,5 +1,5 @@
-svg {
-  overflow: hidden;
+#wrap svg {
+  overflow: visible;
 }
 body {
 	text-align: center;
@@ -25,7 +25,10 @@ g.tick {
   z-index: 100;
   transition:  all .05s;
 }
-
+.text_year {
+  font-size: 120px;
+  fill: #eee;
+}
 g.polygons {
   z-index: 10;
   path {
