@@ -22,14 +22,13 @@ d3.csv('assets/js/data/population.csv')
       .domain([0,maxR])
       .range([1,100]);
 
-
     var china = svg.selectAll('.China')
-      .data(chnPopulation[,1])
       .enter().append("circle")
       .attr('class','China')
       .attr('cx',width/2)
       .attr('cy',height/2)
-      .attr('r',function(d){console.log(d[1]);return pop(d[1]);});
+      .attr('r',1)
+      .each(move);
   });
 
 
