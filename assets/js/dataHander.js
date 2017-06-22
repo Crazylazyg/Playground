@@ -5,3 +5,4 @@ var letterNodes = d3.select(data).selectAll("letter")._groups;
 console.log(letterNodes);
 
 });
+  

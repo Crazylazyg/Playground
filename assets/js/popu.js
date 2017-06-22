@@ -5,8 +5,8 @@ var chnPopu = [],
 d3.csv('assets/js/data/life_expectancy.csv')
   .row(function(d){return {
     name: d.geo,
-    year: +(d.time),
-    life: +(d.life),
+    year: +d.time,
+    life: +d.life,
     };}).get(function(error, data){
     if (error) throw error;
     for (var i = 0; i < data.length; i++) {
@@ -14,35 +14,41 @@ d3.csv('assets/js/data/life_expectancy.csv')
         chnLife.push([data[i].year, data[i].life]);
       }
     }
+    first();
   });
 
-d3.csv('assets/js/data/capita.csv')
-  .row(function(d){return {
-    name: d.geo,
-    year: +(d.time),
-    gdp: +(d.gdp),
-    };}).get(function(error, data){
-    if (error) throw error;
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].name == 'chn' && data[i].year < 2020 && data[i].year > 1819) {
-        chnCapita.push([data[i].year, data[i].gdp]);
+function first (){
+  d3.csv('assets/js/data/capita.csv')
+    .row(function(d){return {
+      name: d.geo,
+      year: +d.time,
+      gdp: +d.gdp,
+      };}).get(function(error, data){
+      if (error) throw error;
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].name == 'chn' && data[i].year < 2020 && data[i].year > 1819) {
+          chnCapita.push([data[i].year, data[i].gdp]);
+        }
       }
-    }
-  });
-d3.csv('assets/js/data/popu.csv')
-  .row(function(d){return {
-    name: d.Area,
-    year: +(d.Year),
-    populat: +(d.Population),
-    };}).get(function(error, data){
-    if (error) throw error;
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].name == 'China' && data[i].year < 2020 && data[i].year > 1819) {
-        chnPopu.push([data[i].year, data[i].populat]);
+      second();
+    });
+}
+function second(){
+  d3.csv('assets/js/data/popu.csv')
+    .row(function(d){return {
+      name: d.Area,
+      year: +d.Year,
+      populat: +d.Population,
+      };}).get(function(error, data){
+      if (error) throw error;
+      for (var i = 0; i < data.length; i++) {
+        if (data[i].name == 'China' && data[i].year < 2020 && data[i].year > 1819) {
+          chnPopu.push([data[i].year, data[i].populat]);
+        }
       }
-    }
-
-  });
+      start();
+    });
+}
 
 function start() {
   if (chnPopu[0]){
@@ -66,16 +72,16 @@ function start() {
         x = d3.scaleLinear()
           .domain([0,maxX])
           .range([0,width]),
-        r = d3.scaleLinear()
+        r = d3.scalePow().exponent(0.5)
           .domain([0,maxR])
-          .range([0,100]);
+          .range([0,width/12]);
     //svg
     var yAxis = d3.axisLeft(y),
         xAxis = d3.axisBottom(x);
     var svg = d3.select('#wrap').append('svg')
           .attr('width',width+margin.left+margin.right)
           .attr('height',height+margin.top+margin.bottom)
-          .attr('transform','translate('+ (margin.left)+','+margin.top+')');
+          .attr('transform','translate('+ (margin.left)+','+(margin.top)+')');
     svg.append('g').attr('class','axis y').call(yAxis);
     svg.append('g').attr('class','axis x').attr('transform','translate(0,'+height+')').call(xAxis);
     var textYear = d3.select('svg').append('text')
@@ -121,5 +127,3 @@ function start() {
     }
   }
 }
-
-setTimeout(start, 1500);
