@@ -464,3 +464,8 @@ g.links {
 
 circle.dots {
   fill: url(#Rainbow); }
+
+.maps {
+  fill: #f6f6f6;
+  stroke: #ccc;
+  stroke-width: 0.5; }
