@@ -469,3 +469,5 @@ circle.dots {
   fill: #f6f6f6;
   stroke: #ccc;
   stroke-width: 0.5; }
+  .maps:hover {
+    fill: #ccc; }

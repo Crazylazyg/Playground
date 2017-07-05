@@ -45,4 +45,8 @@ function draw(geo_data){
           })
           .entries(data);
   }
+
+  function update(year){
+
+  }
 }
