@@ -468,22 +468,24 @@ circle.dots {
 h2 {
   text-align: center;
   font-size: 3em; }
+  h2 span {
+    color: #ef1111; }
 
 .maps {
-  fill: #f6f6f6;
-  stroke: #ccc;
-  stroke-width: 0.5;
+  fill: #eee;
+  stroke: #fff;
+  stroke-width: 0.45;
   -webkit-transition: all .2s;
           transition: all .2s; }
   .maps.active {
-    fill: #dcdcdc;
+    fill: #d0d0d2;
     stroke: #fff; }
   .maps.inactive {
-    fill: #fdfdfd; }
+    fill: #eee; }
 
 circle.host {
   fill: #ef1111;
-  opacity: 0.74;
+  opacity: 0.76;
   -webkit-transition: all 0.1s;
           transition: all 0.1s; }
   circle.host:hover {
@@ -493,8 +495,13 @@ circle.host {
   font-size: 14px;
   display: inline-block;
   margin: 0 8px;
-  cursor: pointer; }
+  padding: 4px 0;
+  cursor: pointer;
+  -webkit-transition: all .2s;
+          transition: all .2s; }
   .years_buttons .button.active {
-    border-bottom: 2px solid #ef1111; }
+    border-bottom: 4px solid #ef1111; }
   .years_buttons .button.inactive {
-    border-bottom: none; }
+    border-bottom: 4px solid rgba(255, 255, 255, 0); }
+    .years_buttons .button.inactive:hover {
+      color: #ef1111; }

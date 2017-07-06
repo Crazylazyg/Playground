@@ -75,28 +75,31 @@ circle.dots{
 h2 {
   text-align: center;
   font-size: 3em;
+  span {
+    color: #ef1111;
+  }
 }
 .maps {
-  fill: #f6f6f6;
-  stroke: #ccc;
-  stroke-width: 0.5;
+  fill: #eee;
+  stroke: #fff;
+  stroke-width: 0.45;
   // &:hover {
   //   fill: #ccc;
   // }
   transition: all .2s;
   &.active {
-    fill: #dcdcdc;
+    fill: #d0d0d2;
     stroke: #fff;
   }
   &.inactive {
-    fill: #fdfdfd;
+    fill: #eee;
   }
 }
 
 
 circle.host {
   fill: #ef1111;
-  opacity: 0.74;
+  opacity: 0.76;
   transition: all 0.1s;
   &:hover {
     opacity: 0.9;
@@ -108,12 +111,18 @@ circle.host {
     font-size: 14px;
     display: inline-block;
     margin: 0 8px;
+    padding: 4px 0;
     cursor: pointer;
+    transition: all .2s;
     &.active {
-      border-bottom: 2px solid #ef1111;
+      border-bottom: 4px solid #ef1111;
     }
     &.inactive {
-      border-bottom: none;
+      border-bottom: 4px solid rgba(255,255,255,0);
+      &:hover {
+        color: #ef1111;
+
+      }
     }
   }
 }

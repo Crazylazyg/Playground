@@ -110,7 +110,7 @@ function draw(geo_data){
         .attr('cy', function(d){return d.value['y'];})
         .attr('r', function(d){return radius(d.value['attendance']);});
 
-      h2.text('World Cup '+ year);
+      h2.html(`World Cup <span>${year}</span>`);
       var countries = filtered[0].value['teams'];
       function update_countries(d) {
         if(countries.indexOf(d.properties.name) !== -1) {
@@ -154,7 +154,7 @@ function draw(geo_data){
           update(+d3.select(this).text());
         });
       }
-    }, 1000);
+    }, 1200);
 
 
 
