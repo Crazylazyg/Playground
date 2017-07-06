@@ -465,9 +465,36 @@ g.links {
 circle.dots {
   fill: url(#Rainbow); }
 
+h2 {
+  text-align: center;
+  font-size: 3em; }
+
 .maps {
   fill: #f6f6f6;
   stroke: #ccc;
-  stroke-width: 0.5; }
-  .maps:hover {
-    fill: #ccc; }
+  stroke-width: 0.5;
+  -webkit-transition: all .2s;
+          transition: all .2s; }
+  .maps.active {
+    fill: #dcdcdc;
+    stroke: #fff; }
+  .maps.inactive {
+    fill: #fdfdfd; }
+
+circle.host {
+  fill: #ef1111;
+  opacity: 0.74;
+  -webkit-transition: all 0.1s;
+          transition: all 0.1s; }
+  circle.host:hover {
+    opacity: 0.9; }
+
+.years_buttons .button {
+  font-size: 14px;
+  display: inline-block;
+  margin: 0 8px;
+  cursor: pointer; }
+  .years_buttons .button.active {
+    border-bottom: 2px solid #ef1111; }
+  .years_buttons .button.inactive {
+    border-bottom: none; }

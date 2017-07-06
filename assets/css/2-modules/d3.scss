@@ -72,11 +72,48 @@ circle.dots{
 }
 
 //maps
+h2 {
+  text-align: center;
+  font-size: 3em;
+}
 .maps {
   fill: #f6f6f6;
   stroke: #ccc;
   stroke-width: 0.5;
+  // &:hover {
+  //   fill: #ccc;
+  // }
+  transition: all .2s;
+  &.active {
+    fill: #dcdcdc;
+    stroke: #fff;
+  }
+  &.inactive {
+    fill: #fdfdfd;
+  }
+}
+
+
+circle.host {
+  fill: #ef1111;
+  opacity: 0.74;
+  transition: all 0.1s;
   &:hover {
-    fill: #ccc;
+    opacity: 0.9;
+  }
+}
+
+.years_buttons {
+  .button {
+    font-size: 14px;
+    display: inline-block;
+    margin: 0 8px;
+    cursor: pointer;
+    &.active {
+      border-bottom: 2px solid #ef1111;
+    }
+    &.inactive {
+      border-bottom: none;
+    }
   }
 }
