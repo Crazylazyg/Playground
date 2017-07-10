@@ -31,5 +31,4 @@ d3.csv("assets/js/prices.csv")
     chartGroup.append('g').attr('class','axis y').call(yAxis);
     chartGroup.append('g').attr('class','axis x').attr('transform','translate(0,'+height+')').call(xAxis);
 
-
   });
