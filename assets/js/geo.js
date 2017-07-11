@@ -67,7 +67,7 @@ function draw(geo_data){
         'teams': teams.values()
       };
     }
-
+    // debugger;
     var nested = d3.nest()
           .key(function(d){
             return d['date'].getUTCFullYear();
@@ -92,7 +92,7 @@ function draw(geo_data){
       .enter().append('circle')
         .attr('class','host')
         .attr('cx', function(d){return d.value['x'];})
-        .attr('cy', function(d){return d.value['y'];})
+        .attr('cy', function(d){debugger; return d.value['y'];})
         .attr('r', function(d){return radius(d.value['attendance']);})
 
     function update(year){

@@ -13,31 +13,99 @@ var svg = d3.select('#wrap').append('svg')
       .attr('height',height+margin.top+margin.bottom)
       .attr('transform','translate('+ (-margin.left)+','+margin.top+')');
 
-d3.csv('assets/js/data/life_expectancy.csv', first);
+d3.csv('assets/js/data/life_expectancy.csv').row(function(d){
+    if(+d.time > 1919){
+      return {
+      name: d.geo,
+      year: +d.time,
+      life: +d.life,
+      }
+    }
+  }).get(function(error, data){
+  if (error) throw error;
+  first(data);
+});
 
-function first(dataLife) {
-  var nested = d3.nest()
-        .key(function(d){
-          return d['time'];
-        })
-        .key(function(d){
-          return d['geo'];
-        })
-        .rollup(function(d){
-          return {
-            'life': +(d[0]['life'])
-          }
-        })
-        .entries(dataLife);
+function first(dataLife){
+  d3.csv('assets/js/data/capita.csv')    .row(function(d){
+    if(+d.time > 1919) {
+      return {
+        name: d.geo,
+        year: +d.time,
+        gdp: +d.gdp,
+      };
+    }
+  })
+  .get(function(error, data){
+      if (error) throw error;
+      second(dataLife,data);
+  });
 
-  var filtered = nested[0]['values'];
+}
+function second(dataLife,dataCapita) {
+  d3.csv('assets/js/data/popu.csv').row(function(d){
+    if(+d.Year > 1919){
+      return {
+      name: d.Area,
+      year: +d.Year,
+      population: +d.Population,
+      };
+    }
+  })
+  .get(function(error, data){
+    if (error) throw error;
+    draw(dataLife,dataCapita,data);
+  });
+}
 
-  var test = svg.selectAll('text')
-          .data(filtered)
-          .enter().append('text')
-            .attr('x',function(d,i) { return i*40;} )
-            .attr('y','100')
-            .text(function(d){ return d['key'] +':'+ d['value']['life'];});
 
-  // debugger;
+function draw(dataLife,dataCapita,dataPop) {
+  var nestLife = d3.nest()
+      .key(function(d){
+        return d['year'];
+      }).sortKeys(d3.ascending)
+      .key(function(d){
+        return d['name'];
+      })
+      .rollup(function(d){
+        return {
+          'life': d[0].life,
+        }
+      })
+      .entries(dataLife),
+      nestCap = d3.nest()
+          .key(function(d){
+            return d['year'];
+          }).sortKeys(d3.ascending)
+          .key(function(d){
+            return d['name'];
+          })
+          .entries(dataCapita),
+      nestPop = d3.nest()
+          .key(function(d){
+            return d['year'];
+          }).sortKeys(d3.ascending)
+          .rollup(function(d){
+            return {
+              'name':d['name'],
+              'pop': d['population'],
+            }
+          })
+          .entries(dataPop);
+  function key_func(d) {return d['key'];}
+
+  var filtered = nestLife.filter(function(d){
+    return d['key'] === '1949';
+  });
+
+  var test = svg.selectAll('circle')
+        .data(filtered,key_func)
+        .enter().append('cirlce')
+        .attr("class",'move')
+         .attr("r",function(d){debugger; return d.values['life'];})
+         .each(gdp);
+  debugger;
+  function gdp(){
+
+  }
 }
