@@ -7,7 +7,7 @@ var margin = {
     },
     width = window.innerWidth - margin.left - margin.right - 100,
     height = Math.min(500, window.innerHeight-margin.top-margin.bottom-10);
-var c20c = d3.scaleSequential(d3.interpolateMagma).domain([0,220]);
+var c20c = d3.scaleSequential(d3.interpolateMagma).domain([0,210]);
 var svg = d3.select('#wrap').append('svg')
       .attr('width',width+margin.left+margin.right)
       .attr('height',height+margin.top+margin.bottom)
@@ -94,7 +94,7 @@ function draw(dataLife,dataCapita,dataPop) {
       popMax = d3.max(dataPop, function(d){return d.population}),
       popMin = d3.min(dataPop, function(d){return d.population});
 
-  var x = d3.scalePow().exponent(0.25)
+  var x = d3.scalePow().exponent(0.3333)
           .domain([0,capMax])
           .range([0,width]),
       y = d3.scaleLinear()
@@ -215,12 +215,10 @@ function draw(dataLife,dataCapita,dataPop) {
     }
     // debugger;
 
-
     // var filtered = nestCap.filter(function(d){
     //   return d['key'] == year;
     // });
     // var countries = filtered[0].values;
-
 
     // debugger;
 
