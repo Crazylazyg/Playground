@@ -92,7 +92,7 @@ function draw(geo_data){
       .enter().append('circle')
         .attr('class','host')
         .attr('cx', function(d){return d.value['x'];})
-        .attr('cy', function(d){debugger; return d.value['y'];})
+        .attr('cy', function(d){return d.value['y'];})
         .attr('r', function(d){return radius(d.value['attendance']);})
 
     function update(year){
@@ -109,7 +109,7 @@ function draw(geo_data){
         .attr('cx', function(d){return d.value['x'];})
         .attr('cy', function(d){return d.value['y'];})
         .attr('r', function(d){return radius(d.value['attendance']);});
-
+      debugger;
       h2.html(`World Cup <span>${year}</span>`);
       var countries = filtered[0].value['teams'];
       function update_countries(d) {

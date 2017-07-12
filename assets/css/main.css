@@ -411,10 +411,6 @@ svg {
 body {
   text-align: center; }
 
-g path {
-  stroke: #f20321;
-  fill: none; }
-
 g.tick text {
   font-size: 1vw; }
 
@@ -484,8 +480,7 @@ h2 {
     fill: #eee; }
 
 circle.host {
-  fill: #ef1111;
-  opacity: 0.76;
+  opacity: 0.72;
   -webkit-transition: all 0.1s;
           transition: all 0.1s; }
   circle.host:hover {
@@ -505,3 +500,13 @@ circle.host {
     border-bottom: 4px solid rgba(255, 255, 255, 0); }
     .years_buttons .button.inactive:hover {
       color: #ef1111; }
+
+circle.country {
+  fill: red; }
+
+text.tipText {
+  fill: #999; }
+
+text.textYear {
+  font-size: 160px;
+  fill: #eee; }

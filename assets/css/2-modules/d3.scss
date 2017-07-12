@@ -7,10 +7,10 @@ svg {
 body {
 	text-align: center;
 }
-g path{
-  stroke: #f20321;
-  fill: none;
-}
+// g path{
+//   stroke: #f20321;
+//   fill: none;
+// }
 
 
 g.tick {
@@ -98,8 +98,8 @@ h2 {
 
 
 circle.host {
-  fill: #ef1111;
-  opacity: 0.76;
+  // fill: #ef1111;
+  opacity: 0.72;
   transition: all 0.1s;
   &:hover {
     opacity: 0.9;
@@ -125,4 +125,18 @@ circle.host {
       }
     }
   }
+}
+
+
+// country
+circle.country {
+  fill: red;
+}
+text.tipText {
+  fill:#999;
+}
+
+text.textYear {
+  font-size: 160px;
+  fill: #eee;
 }
