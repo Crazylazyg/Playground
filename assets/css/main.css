@@ -480,11 +480,17 @@ h2 {
     fill: #eee; }
 
 circle.host {
-  opacity: 0.72;
+  opacity: 0.64;
   -webkit-transition: all 0.1s;
           transition: all 0.1s; }
   circle.host:hover {
-    opacity: 0.9; }
+    opacity: 0.9;
+    stroke-width: 1;
+    stroke: #fcfcfc;
+    -webkit-transform-origin: center;
+            transform-origin: center;
+    -webkit-transform: scale(1.1);
+            transform: scale(1.1); }
 
 .years_buttons .button {
   font-size: 14px;
@@ -505,8 +511,31 @@ circle.country {
   fill: red; }
 
 text.tipText {
-  fill: #999; }
+  fill: #999;
+  font-size: 12px;
+  font-weight: normal; }
 
 text.textYear {
   font-size: 160px;
   fill: #eee; }
+
+rect.selector {
+  fill: #f9f9f9; }
+
+rect.bar {
+  fill: rgba(45, 17, 97, 0.52); }
+
+rect.overlay {
+  fill: rgba(255, 255, 255, 0); }
+
+#countryTip {
+  opacity: 1;
+  padding: 24px 0 0 0;
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 4px;
+  z-index: 100;
+  -webkit-transition: all .05s;
+          transition: all .05s;
+  font-size: 32px;
+  font-weight: bold;
+  color: rgba(45, 17, 97, 0.64); }

@@ -99,10 +99,14 @@ h2 {
 
 circle.host {
   // fill: #ef1111;
-  opacity: 0.72;
+  opacity: 0.64;
   transition: all 0.1s;
   &:hover {
     opacity: 0.9;
+    stroke-width: 1;
+    stroke: #fcfcfc;
+    transform-origin: center;
+    transform: scale(1.1);
   }
 }
 
@@ -134,9 +138,33 @@ circle.country {
 }
 text.tipText {
   fill:#999;
+  font-size: 12px;
+  font-weight: normal;
 }
 
 text.textYear {
   font-size: 160px;
   fill: #eee;
+}
+rect.selector {
+  fill: #f9f9f9;
+}
+rect.bar {
+  fill: rgba(45, 17, 97,0.52);
+}
+rect.overlay {
+  fill: rgba(255,255,255,0);
+}
+
+#countryTip {
+  // position: absolute;
+  opacity: 1;
+  padding: 24px 0 0 0;
+  background-color: rgba(255,255,255,0.9);
+  border-radius: 4px;
+  z-index: 100;
+  transition:  all .05s;
+  font-size: 32px;
+  font-weight: bold;
+  color: rgba(45, 17, 97,0.64);
 }
