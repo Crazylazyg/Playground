@@ -11,7 +11,7 @@ var margin = {
 //countryTip
 var countryTip = d3.select('#wrap').append('div').attr('id','countryTip').html('The Wealth & Health of Nations');
 
-var c20c = d3.scaleSequential(d3.interpolateMagma).domain([0,210]);
+var c20c = d3.scaleSequential(d3.interpolateMagma).domain([0,220]);
 
 var svg = d3.select('#wrap').append('svg')
       .attr('width',width+margin.left+margin.right)
@@ -33,9 +33,27 @@ var textYear = svg.append('text')
     .html('GDP Income/person');
 
 var nameDic;
-d3.csv('assets/js/data/geoName.csv').get(function(error, data){
+var regionDic;
+d3.csv('assets/js/data/region.csv').get(function(error, data){
   if (error) throw error;
-  nameDic = data
+  regionDic = data;
+});
+d3.csv('assets/js/data/geoName.csv').row(function(d){
+  for (i in regionDic){
+    // debugger;
+    if (regionDic[i].Entity == d.name){
+      return {
+        name: d.name,
+        geo: d.geo,
+        group: regionDic[i].Group,
+      }
+    }
+  }
+})
+.get(function(error, data){
+  if (error) throw error;
+  // debugger;
+  nameDic = data;
 });
 
 d3.csv('assets/js/data/life_expectancy.csv').row(function(d){
@@ -70,18 +88,21 @@ function first(dataLife){
 function second(dataLife,dataCapita) {
   d3.csv('assets/js/data/popu.csv').row(function(d){
     if(+d.Year > 1919){
-      var geo;
       for (i in nameDic) {
-        // debugger;
+          // debugger;
         if (nameDic[i].name == d.Area) {
-          geo = nameDic[i].geo
+          var geo = nameDic[i].geo;
+          var group = nameDic[i].group;
+          // debugger;
+          return {
+            name: geo,
+            year: +d.Year,
+            population: +d.Population,
+            group: group.slice(1,-1),
+          };
         }
       }
-      return {
-        name: geo,
-        year: +d.Year,
-        population: +d.Population,
-      };
+
     }
   })
   .get(function(error, data){
@@ -152,10 +173,9 @@ function draw(dataLife,dataCapita,dataPop) {
         .attr("height", barHeight)
         .on("mouseover", enableInteraction);
 
-
-
   // cleaing data
   var dataAll = dataLife.concat(dataCapita).concat(dataPop);
+
   var nested = d3.nest()
         .key(function(d){
           return d['year'];
@@ -172,6 +192,7 @@ function draw(dataLife,dataCapita,dataPop) {
                 life: d[0].life,
                 gdp: d[1].gdp,
                 pop: d[2].population,
+                group: d[2].group,
               }
             }
           }
@@ -179,45 +200,35 @@ function draw(dataLife,dataCapita,dataPop) {
         .entries(dataAll);
   // debugger;
   var start = true;
+  function key_func(d){return d['key'];}
   function update(year) {
-    var filtered = nested.filter(function(d){
-      return d['key'] == year;
+    var filtered = nested.filter(function(d) {
+      return d['key'] == year ;
     });
     // debugger;
-    var dataG = filtered[0].values;
+    // var dataS = filtered[0].values;
+    var dataF = filtered[0].values.filter(function(d){
+      return d.value;
+      });
+    var dataG = dataF.sort(function(a,b){
+      if (a.value['group'] != b.value['group']){
+        return d3.ascending(b.value['group'], a.value['group']);
+      }else{
+        return d3.ascending(b.value['pop'],a.value['pop']);
+      }
+    });
+
     var country = svg.selectAll('circle');
-    setTimeout(textYear.html(year), 500);
+    // debugger;
+    setTimeout(textYear.html(year), 400);
     if (start) {
-      country.data(dataG,function(d){return d.key;})
+      country.data(dataG, key_func)
         .enter().append('circle')
-          .attr('class', 'host')
+          .attr('class', function(d){return "host";})
           .attr('fill', function(d,i){ return c20c(i);})
-          .attr("cx",function(d){
-            // debugger;
-            if(d.value){
-              // debugger;
-              return x(d.value['gdp']);
-            }else{
-              return 0;
-            }
-          })
-          .attr("cy",function(d){
-           //  debugger;
-            if(d.value){
-             //  debugger;
-              return y(d.value['life']);
-            }else{
-              return y(0);
-            }
-          })
-          .attr("r",function(d){
-          //  debugger;
-           if(d.value){
-            //  debugger;
-             return r(d.value['pop']);
-           }else{
-             return 0;
-           }
+          .attr("cx",function(d){return x(d.value['gdp']);})
+          .attr("cy",function(d){return y(d.value['life']);})
+          .attr("r",function(d){return r(d.value['pop']);
           }).on('mousemove', function(d){
             var name;
             for (i in nameDic) {
@@ -232,29 +243,20 @@ function draw(dataLife,dataCapita,dataPop) {
 
       start = false;
     }else{
-      country.data(dataG, function(d){return d.key;})
+      country.data(dataG,key_func)
         .transition()
+        .duration(400)
         .ease(d3.easeLinear)
           .attr("cx",function(d){
-            // debugger;
-            if(d.value){
-              // debugger;
-              return x(d.value['gdp']);
-            }
-          })
+            if (!x(d.value['gdp'])){
+            debugger;
+          }else{
+            return x(d.value['gdp']);
+          }})
           .attr("cy",function(d){
-           //  debugger;
-            if(d.value){
-             //  debugger;
-              return y(d.value['life']);
-            }
-          })
+            return y(d.value['life']);})
           .attr("r",function(d){
-          //  debugger;
-           if(d.value){
-            //  debugger;
-             return r(d.value['pop']);
-           }
+            return r(d.value['pop']);
           });
     }
     // debugger;
@@ -283,21 +285,16 @@ function draw(dataLife,dataCapita,dataPop) {
     if (yearIndex > 2016){
       clearInterval(yearInterval);
     }
-  }, 500);
+  }, 410);
 
 
   function enableInteraction(){
       var yearScale = d3.scaleLinear()
           .domain([0, width])
-          .range([1951, 2016])
-          .clamp(true);
+          .range([1951, 2016]);
       // debugger;
       // Cancel the current transition, if any.
-      // country.transition().duration(0);
-
       overlay
-          .on("mouseover", mouseover)
-          .on("mouseout", mouseout)
           .on("mousemove", mousemove)
           .on("touchmove", mousemove);
 

@@ -1,0 +1,260 @@
+Entity,Group,ID
+Abkhazia,[Europe],Abkhazia
+Afghanistan,[Asia],AF
+Akrotiri and Dhekelia,[Europe],Akrotiri_Dhekelia
+_land,[Europe],AX
+Albania,[Europe],AL
+Algeria,[Africa],DZ
+American Samoa,[Asia],AS
+Andorra,[Europe],AD
+Angola,[Africa],AO
+Anguilla,[America],AI
+Antigua and Barbuda,[America],AG
+Argentina,[America],AR
+Armenia,[Europe],AM
+Aruba,[America],AW
+Australia,[Asia],AU
+Austria,[Europe],AT
+Azerbaijan,[Europe],AZ
+Bahamas,[America],BS
+Bahrain,[Asia],BH
+Bangladesh,[Asia],BD
+Barbados,[America],BB
+Belarus,[Europe],BY
+Belgium,[Europe],BE
+Belize,[America],BZ
+Benin,[Africa],BJ
+Bermuda,[America],BM
+Bhutan,[Asia],BT
+Bolivia,[America],BO
+Bosnia and Herzegovina,[Europe],BA
+Botswana,[Africa],BW
+Brazil,[America],BR
+British Virgin Islands,[America],VG
+Brunei,[Asia],BN
+Bulgaria,[Europe],BG
+Burkina Faso,[Africa],BF
+Burundi,[Africa],BI
+Cambodia,[Asia],KH
+Cameroon,[Africa],CM
+Canada,[America],CA
+Cape Verde,[Africa],CV
+Cayman Islands,[America],KY
+Central African Rep.,[Africa],CF
+Chad,[Africa],TD
+Channel Islands,[Europe],Channel_Islands
+Chile,[America],CL
+China,[Asia],CN
+Christmas Island,[Asia],CX
+Cocos Island,[Asia],CC
+Colombia,[America],CO
+Comoros,[Africa],KM
+"Congo, Dem. Rep.",[Africa],CD
+"Congo, Rep.",[Africa],CG
+Cook Islands,[Asia],CK
+Costa Rica,[America],CR
+Cote d'Ivoire,[Africa],CI
+Croatia,[Europe],HR
+Cuba,[America],CU
+Cyprus,[Europe],CY
+Czech Rep.,[Europe],CZ
+Czechoslovakia,[Europe],Czechoslovakia
+Denmark,[Europe],DK
+Djibouti,[Africa],DJ
+Dominica,[America],DM
+Dominican Rep.,[America],DO
+East Germany,[Europe],East_Germany
+Ecuador,[America],EC
+Egypt,[Africa],EG
+El Salvador,[America],SV
+Equatorial Guinea,[Africa],GQ
+Eritrea,[Africa],ER
+Eritrea and Ethiopia,[Africa],Eritrea_Ethiopia
+Estonia,[Europe],EE
+Ethiopia,[Africa],ET
+Faeroe Islands,[Europe],FO
+Falkland Islands (Malvinas),[America],FK
+Fiji,[Asia],FJ
+Finland,[Europe],FI
+France,[Europe],FR
+French Guiana,[America],GF
+French Polynesia,[Asia],PF
+Gabon,[Africa],GA
+Gambia,[Africa],GM
+Georgia,[Europe],GE
+Germany,[Europe],DE
+Ghana,[Africa],GH
+Gibraltar,[Europe],GI
+Greece,[Europe],GR
+Greenland,[Europe],GL
+Grenada,[America],GD
+Guadeloupe,[America],GP
+Guam,[Asia],GU
+Guatemala,[America],GT
+Guernsey,[Europe],GG
+Guinea,[Africa],GN
+Guinea-Bissau,[Africa],GW
+Guyana,[America],GY
+Haiti,[America],HT
+Holy See,[Europe],Holy_See
+Honduras,[America],HN
+"Hong Kong, China",[Asia],HK
+Hungary,[Europe],HU
+Iceland,[Europe],IS
+India,[Asia],IN
+Indonesia,[Asia],ID
+Iran,[Asia],IR
+Iraq,[Asia],IQ
+Ireland,[Europe],IE
+Isle of Man,[Europe],IM
+Israel,[Asia],IL
+Italy,[Europe],IT
+Jamaica,[America],JM
+Japan,[Asia],JP
+Jersey,[Europe],JE
+Jordan,[Asia],JO
+Kazakhstan,[Asia],KZ
+Kenya,[Africa],KE
+Kiribati,[Asia],KI
+"Korea, Dem. Rep.",[Asia],KP
+"Korea, Rep.",[Asia],KR
+"Korea, United",[Asia],United_Korea
+Kosovo,[Europe],Kosovo
+Kuwait,[Asia],KW
+Kyrgyzstan,[Asia],KG
+Laos,[Asia],LA
+Latvia,[Europe],LV
+Lebanon,[Asia],LB
+Lesotho,[Africa],LS
+Liberia,[Africa],LR
+Libya,[Africa],LY
+Liechtenstein,[Europe],LI
+Lithuania,[Europe],LT
+Luxembourg,[Europe],LU
+"Macao, China",[Asia],MO
+"Macedonia, FYR",[Europe],MK
+Madagascar,[Africa],MG
+Malawi,[Africa],MW
+Malaysia,[Asia],MY
+Maldives,[Asia],MV
+Mali,[Africa],ML
+Malta,[Europe],MT
+Marshall Islands,[Asia],MH
+Martinique,[America],MQ
+Mauritania,[Africa],MR
+Mauritius,[Africa],MU
+Mayotte,[Africa],YT
+Mexico,[America],MX
+"Micronesia, Fed. Sts.",[Asia],FM
+Moldova,[Europe],MD
+Monaco,[Europe],MC
+Mongolia,[Asia],MN
+Montenegro,[Europe],ME
+Montserrat,[America],MS
+Morocco,[Africa],MA
+Mozambique,[Africa],MZ
+Myanmar,[Asia],MM
+Namibia,[Africa],NA
+Nauru,[Asia],NR
+Nepal,[Asia],NP
+Netherlands,[Europe],NL
+Netherlands Antilles,[America],AN
+New Caledonia,[Asia],NC
+New Zealand,[Asia],NZ
+Ngorno-Karabakh,[Europe],Ngorno_Karabakh
+Nicaragua,[America],NI
+Niger,[Africa],NE
+Nigeria,[Africa],NG
+Niue,[Asia],NU
+Norfolk Island,[Asia],NF
+Northern Cyprus,[Europe],Northern_Cyprus
+Northern Mariana Islands,[Asia],MP
+Norway,[Europe],NO
+Oman,[Asia],OM
+Pakistan,[Asia],PK
+Palau,[Asia],PW
+Panama,[America],PA
+Papua New Guinea,[Asia],PG
+Paraguay,[America],PY
+Peru,[America],PE
+Philippines,[Asia],PH
+Pitcairn,[Asia],PN
+Poland,[Europe],PL
+Portugal,[Europe],PT
+Puerto Rico,[America],PR
+Qatar,[Asia],QA
+Reunion,[Africa],RE
+Romania,[Europe],RO
+Russia,[Europe],RU
+Rwanda,[Africa],RW
+Saint Barth¨¦lemy,[America],BL
+Saint Helena,[Africa],SH
+Saint Kitts and Nevis,[America],KN
+Saint Lucia,[America],LC
+Saint Martin,[America],MF
+Saint Vincent and the Grenadines,[America],VC
+Saint-Pierre-et-Miquelon,[America],PM
+Samoa,[Asia],WS
+San Marino,[Europe],SM
+Sao Tome and Principe,[Africa],ST
+Saudi Arabia,[Asia],SA
+Senegal,[Africa],SN
+Serbia,[Europe],RS
+Serbia and Montenegro,[Europe],Serbia_Montenegro
+Serbia excluding Kosovo,[Europe],Serbia_excluding_Kosovo
+Seychelles,[Africa],SC
+Sierra Leone,[Africa],SL
+Singapore,[Asia],SG
+Slovak Republic,[Europe],SK
+Slovenia,[Europe],SI
+Solomon Islands,[Asia],SB
+Somalia,[Africa],SO
+Somaliland,[Africa],Somaliland
+South Africa,[Africa],ZA
+South Ossetia,[Europe],South_Ossetia
+Spain,[Europe],ES
+Sri Lanka,[Asia],LK
+Sudan,[Africa],SD
+Suriname,[America],SR
+Svalbard,[Europe],SJ
+Swaziland,[Africa],SZ
+Sweden,[Europe],SE
+Switzerland,[Europe],CH
+Syria,[Asia],SY
+Taiwan,[Asia],TW
+Tajikistan,[Asia],TJ
+Tanzania,[Africa],TZ
+Thailand,[Asia],TH
+Timor-Leste,[Asia],TL
+Togo,[Africa],TG
+Tokelau,[Asia],TK
+Tonga,[Asia],TO
+Transnistria,[Europe],Transnistria
+Trinidad and Tobago,[America],TT
+Tunisia,[Africa],TN
+Turkey,[Europe],TR
+Turkmenistan,[Asia],TM
+Turks and Caicos Islands,[America],TC
+Tuvalu,[Asia],TV
+Uganda,[Africa],UG
+Ukraine,[Europe],UA
+United Arab Emirates,[Asia],AE
+United Kingdom,[Europe],GB
+United States,[America],US
+Uruguay,[America],UY
+USSR,[Europe],USSR
+Uzbekistan,[Asia],UZ
+Vanuatu,[Asia],VU
+Venezuela,[America],VE
+Vietnam,[Asia],VN
+Virgin Islands (U.S.),[America],VI
+Wallis et Futuna,[Asia],WF
+West Bank and Gaza,[Asia],PS
+West Germany,[Europe],West_Germany
+Western Sahara,[Africa],EH
+Yemen Arab Republic (Former),[Asia],North_Yemen
+Yemen Democratic (Former),[Asia],South_Yemen
+"Yemen, Rep.",[Asia],YE
+Yugoslavia,[Europe],Yugoslavia
+Zambia,[Africa],ZM
+Zimbabwe,[Africa],ZW
