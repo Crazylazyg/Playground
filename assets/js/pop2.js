@@ -57,7 +57,7 @@ d3.csv('assets/js/data/geoName.csv').row(function(d){
 });
 
 d3.csv('assets/js/data/life_expectancy.csv').row(function(d){
-    if(+d.time > 1919){
+    if(+d.time > 1949){
       return {
       name: d.geo,
       year: +d.time,
@@ -71,7 +71,7 @@ d3.csv('assets/js/data/life_expectancy.csv').row(function(d){
 
 function first(dataLife){
   d3.csv('assets/js/data/capita.csv')    .row(function(d){
-    if(+d.time > 1919) {
+    if(+d.time > 1949) {
       return {
         name: d.geo,
         year: +d.time,
@@ -87,7 +87,8 @@ function first(dataLife){
 }
 function second(dataLife,dataCapita) {
   d3.csv('assets/js/data/popu.csv').row(function(d){
-    if(+d.Year > 1919){
+    var yearD = +d.Year;
+    if(yearD > 1949){
       for (i in nameDic) {
           // debugger;
         if (nameDic[i].name == d.Area) {
@@ -96,7 +97,7 @@ function second(dataLife,dataCapita) {
           // debugger;
           return {
             name: geo,
-            year: +d.Year,
+            year: yearD,
             population: +d.Population,
             group: group.slice(1,-1),
           };
@@ -198,25 +199,48 @@ function draw(dataLife,dataCapita,dataPop) {
           }
         })
         .entries(dataAll);
+
+    var sortData = nested.map(function(d){
+      var values = d.values
+        .filter(function(D){
+          // debugger;
+          return D.value;
+        })
+        .sort(function(a,b){
+          if (a.value['group'] != b.value['group']){
+            return d3.ascending(b.value['group'], a.value['group']);
+          }else{
+            return d3.ascending(b.value['pop'],a.value['pop']);
+          }
+        });
+      // debugger;
+
+      return {
+        key: d.key,
+        values : values,
+
+      }
+
+    });
   // debugger;
   var start = true;
   function key_func(d){return d['key'];}
   function update(year) {
-    var filtered = nested.filter(function(d) {
+    var filtered = sortData.filter(function(d) {
       return d['key'] == year ;
     });
     // debugger;
-    // var dataS = filtered[0].values;
-    var dataF = filtered[0].values.filter(function(d){
-      return d.value;
-      });
-    var dataG = dataF.sort(function(a,b){
-      if (a.value['group'] != b.value['group']){
-        return d3.ascending(b.value['group'], a.value['group']);
-      }else{
-        return d3.ascending(b.value['pop'],a.value['pop']);
-      }
-    });
+    var dataG = filtered[0].values;
+    // var dataF = filtered[0].values.filter(function(d){
+    //   return d.value;
+    //   });
+    // var dataG = dataF.sort(function(a,b){
+    //   if (a.value['group'] != b.value['group']){
+    //     return d3.ascending(b.value['group'], a.value['group']);
+    //   }else{
+    //     return d3.ascending(b.value['pop'],a.value['pop']);
+    //   }
+    // });
 
     var country = svg.selectAll('circle');
     // debugger;
@@ -278,7 +302,7 @@ function draw(dataLife,dataCapita,dataPop) {
   var yearInterval = setInterval(function(){
     update(yearIndex);
     yearBar
-    .transition()
+    .transition().duration(400)
     .ease(d3.easeLinear)
       .attr('width', widthScale(yearIndex));
     yearIndex++;
@@ -311,7 +335,7 @@ function draw(dataLife,dataCapita,dataPop) {
         var width = widthScale(yearScale(d3.mouse(this)[0]));
 
         yearBar
-          .transition().duration(60)
+          .transition().duration(1)
           .attr('width', width);
         // console.log(yearScale(d3.mouse(this)[0]));
         update(Math.round(yearScale(d3.mouse(this)[0])));

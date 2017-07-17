@@ -403,7 +403,9 @@ template {
   display: none; }
 
 svg {
-  max-height: 100%; }
+  max-height: 100%;
+  -webkit-transform-origin: center;
+          transform-origin: center; }
 
 #wrap svg {
   overflow: visible; }
@@ -422,8 +424,7 @@ g.tick text {
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 4px;
   z-index: 100;
-  -webkit-transition: all .05s;
-          transition: all .05s; }
+  transition: all .05s; }
 
 .text_year {
   font-size: 120px;
@@ -435,8 +436,7 @@ g.polygons {
     stroke: #666;
     stroke-width: 1;
     fill: transparent;
-    -webkit-transition: all .36s;
-            transition: all .36s; }
+    transition: all .36s; }
     g.polygons path:hover {
       fill: rgba(244, 20, 40, 0.88);
       stroke: transparent; }
@@ -444,8 +444,7 @@ g.polygons {
 g.dots circle {
   fill: #666;
   z-index: 100;
-  -webkit-transition: fill 0.2s, stroke 0.2s, r 0.2s, stroke-width 0.2s;
-          transition: fill 0.2s, stroke 0.2s, r 0.2s, stroke-width 0.2s; }
+  transition: fill 0.2s, stroke 0.2s, r 0.2s, stroke-width 0.2s; }
   g.dots circle.active {
     r: 8;
     fill: #fff;
@@ -471,8 +470,7 @@ h2 {
   fill: #eee;
   stroke: #fff;
   stroke-width: 0.45;
-  -webkit-transition: all .2s;
-          transition: all .2s; }
+  transition: all .2s; }
   .maps.active {
     fill: #d0d0d2;
     stroke: #fff; }
@@ -481,8 +479,7 @@ h2 {
 
 circle.host {
   opacity: 0.72;
-  -webkit-transition: all 0.1s;
-          transition: all 0.1s; }
+  transition: all 0.1s; }
   circle.host:hover {
     opacity: 0.9;
     stroke-width: 1;
@@ -498,8 +495,7 @@ circle.host {
   margin: 0 8px;
   padding: 4px 0;
   cursor: pointer;
-  -webkit-transition: all .2s;
-          transition: all .2s; }
+  transition: all .2s; }
   .years_buttons .button.active {
     border-bottom: 4px solid #ef1111; }
   .years_buttons .button.inactive {
@@ -526,6 +522,7 @@ rect.bar {
   fill: rgba(45, 17, 97, 0.52); }
 
 rect.overlay {
+  cursor: pointer;
   fill: rgba(255, 255, 255, 0); }
 
 #countryTip {
@@ -534,8 +531,7 @@ rect.overlay {
   background-color: rgba(255, 255, 255, 0.9);
   border-radius: 4px;
   z-index: 100;
-  -webkit-transition: all .05s;
-          transition: all .05s;
+  transition: all .05s;
   font-size: 32px;
   font-weight: bold;
   color: rgba(45, 17, 97, 0.64); }
