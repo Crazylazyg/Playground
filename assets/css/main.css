@@ -411,7 +411,8 @@ svg {
   overflow: visible; }
 
 body {
-  text-align: center; }
+  text-align: center;
+  background-color: #fff; }
 
 g.tick text {
   font-size: 1vw; }
@@ -435,8 +436,7 @@ g.polygons {
   g.polygons path {
     stroke: #666;
     stroke-width: 1;
-    fill: transparent;
-    transition: all .36s; }
+    fill: white; }
     g.polygons path:hover {
       fill: rgba(244, 20, 40, 0.88);
       stroke: transparent; }
@@ -526,6 +526,7 @@ rect.overlay {
   fill: rgba(255, 255, 255, 0); }
 
 #countryTip {
+  will-change: transform;
   opacity: 1;
   padding: 24px 0 0 0;
   background-color: rgba(255, 255, 255, 0.9);

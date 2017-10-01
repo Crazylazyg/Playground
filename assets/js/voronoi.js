@@ -21,12 +21,12 @@ var polygonNet = svg.append('g').attr('class','polygons').attr('transform','tran
       var cursorX = d3.event.pageX,
           cursorY = d3.event.pageY;
 
-      if (width-cursorX > tipWidth*1.2){
+      if (width-cursorX > tipWidth*1.6){
         toolTip.style('left',cursorX+12+'px');
       }else{
         toolTip.style('left',(cursorX-tipWidth*1.4)+'px');
       }
-      if (height-cursorY > tipHeight*2){
+      if (height-cursorY > tipHeight*2.8){
         toolTip.style('top',cursorY+24+'px');
       }else{
         toolTip.style('top',(cursorY-tipHeight*2)+'px');

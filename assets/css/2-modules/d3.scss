@@ -7,6 +7,7 @@ svg {
 }
 body {
 	text-align: center;
+  background-color: #fff;
 }
 // g path{
 //   stroke: #f20321;
@@ -33,20 +34,23 @@ g.tick {
   font-size: 120px;
   fill: #eee;
 }
+
 g.polygons {
   z-index: 10;
   path {
     stroke: #666;
     stroke-width: 1;
-    fill: rgba(0,0,0,0);
-    transition: all .36s;
+    fill: rgba(255,255,255,1);
+    // transition: all .2s;
     &:hover {
       fill: rgba(244,20,40,0.88);
       stroke: rgba(0,0,0,0);
     }
   }
 }
-
+.content {
+  // will-change: transform;
+}
 
 g.dots circle {
   fill: #666;
@@ -160,6 +164,7 @@ rect.overlay {
 
 #countryTip {
   // position: absolute;
+  will-change: transform;
   opacity: 1;
   padding: 24px 0 0 0;
   background-color: rgba(255,255,255,0.9);

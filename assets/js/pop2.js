@@ -223,66 +223,66 @@ function draw(dataLife,dataCapita,dataPop) {
 
     });
   // debugger;
-  var start = true;
+
+
+  var filtered = sortData.filter(function(d) {
+    return d['key'] == 1951 ;
+  });
+  // debugger;
+  var dataG = filtered[0].values;
+
+  var country = svg.append('g').attr('class','content').selectAll('circle').data(dataG, key_func)
+    .enter().append('circle')
+      .attr('class', function(d){return "host";})
+      .attr('fill', function(d,i){ return c20c(i);})
+      .attr("cx",function(d){return x(d.value['gdp']);})
+      .attr("cy",function(d){return y(d.value['life']);})
+      .attr("r",function(d){return r(d.value['pop']);
+      }).on('mousemove', function(d){
+        var name;
+        for (i in nameDic) {
+          // debugger;
+          if (nameDic[i].geo == d.key) {
+            name = nameDic[i].name
+          }
+        }
+        countryTip
+          .html(name);
+      });
+
+
   function key_func(d){return d['key'];}
-  function update(year) {
-    var filtered = sortData.filter(function(d) {
-      return d['key'] == year ;
-    });
-    // debugger;
-    var dataG = filtered[0].values;
-    // var dataF = filtered[0].values.filter(function(d){
-    //   return d.value;
-    //   });
-    // var dataG = dataF.sort(function(a,b){
-    //   if (a.value['group'] != b.value['group']){
-    //     return d3.ascending(b.value['group'], a.value['group']);
-    //   }else{
-    //     return d3.ascending(b.value['pop'],a.value['pop']);
-    //   }
+
+  function update(yearIndex) {
+    // filtered = sortData.filter(function(d) {
+    //   // debugger;
+    //   return d['key'] === year.toString() ;
     // });
-
-    var country = svg.selectAll('circle');
     // debugger;
-    setTimeout(textYear.html(year), 400);
-    if (start) {
-      country.data(dataG, key_func)
-        .enter().append('circle')
-          .attr('class', function(d){return "host";})
-          .attr('fill', function(d,i){ return c20c(i);})
-          .attr("cx",function(d){return x(d.value['gdp']);})
-          .attr("cy",function(d){return y(d.value['life']);})
-          .attr("r",function(d){return r(d.value['pop']);
-          }).on('mousemove', function(d){
-            var name;
-            for (i in nameDic) {
-              // debugger;
-              if (nameDic[i].geo == d.key) {
-                name = nameDic[i].name
-              }
-            }
-            countryTip
-              .html(name);
-          });
-
-      start = false;
-    }else{
-      country.data(dataG,key_func)
-        .transition()
-        .duration(400)
-        .ease(d3.easeLinear)
-          .attr("cx",function(d){
-            if (!x(d.value['gdp'])){
-            debugger;
-          }else{
-            return x(d.value['gdp']);
-          }})
-          .attr("cy",function(d){
-            return y(d.value['life']);})
-          .attr("r",function(d){
-            return r(d.value['pop']);
-          });
+    for (d in sortData) {
+      if (sortData[d]['key'] == yearIndex.toString()){
+        dataG =  sortData[d].values;
+        // debugger;
+      }
+      // debugger;
     }
+    // debugger;
+
+    // debugger;
+    setTimeout(textYear.html(yearIndex), 400);
+
+    country.data(dataG,key_func)
+      .transition()
+      .duration(400)
+      .ease(d3.easeLinear)
+        .attr("cx",function(d){
+          return x(d.value['gdp']);
+        })
+        .attr("cy",function(d){
+          return y(d.value['life']);})
+        .attr("r",function(d){
+          return r(d.value['pop']);
+        });
     // debugger;
 
     // var filtered = nestCap.filter(function(d){
@@ -299,17 +299,24 @@ function draw(dataLife,dataCapita,dataPop) {
       .range([0, width]);
 
   var yearIndex = 1951;
+
   var yearInterval = setInterval(function(){
-    update(yearIndex);
+    // debugger;
+    update(yearIndex.toString());
+    // debugger;
+
+
     yearBar
     .transition().duration(400)
     .ease(d3.easeLinear)
       .attr('width', widthScale(yearIndex));
+
     yearIndex++;
-    if (yearIndex > 2016){
+
+    if (yearIndex > 2016) {
       clearInterval(yearInterval);
     }
-  }, 410);
+  }, 400);
 
 
   function enableInteraction(){
@@ -319,8 +326,7 @@ function draw(dataLife,dataCapita,dataPop) {
       // debugger;
       // Cancel the current transition, if any.
       overlay
-          .on("mousemove", mousemove)
-          .on("touchmove", mousemove);
+          .on("mousemove", mousemove);
 
       function mouseover() {
         // setStart(true);
@@ -335,7 +341,7 @@ function draw(dataLife,dataCapita,dataPop) {
         var width = widthScale(yearScale(d3.mouse(this)[0]));
 
         yearBar
-          .transition().duration(1)
+          .transition().duration(10)
           .attr('width', width);
         // console.log(yearScale(d3.mouse(this)[0]));
         update(Math.round(yearScale(d3.mouse(this)[0])));
