@@ -70,7 +70,7 @@ d3.csv('assets/js/data/life_expectancy.csv').row(function(d){
 });
 
 function first(dataLife){
-  d3.csv('assets/js/data/capita.csv')    .row(function(d){
+  d3.csv('assets/js/data/capita.csv').row(function(d){
     if(+d.time > 1949) {
       return {
         name: d.geo,

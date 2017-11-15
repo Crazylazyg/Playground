@@ -478,6 +478,7 @@ h2 {
     fill: #eee; }
 
 circle.host {
+  fill: #ef1111;
   opacity: 0.72;
   transition: all 0.1s; }
   circle.host:hover {
